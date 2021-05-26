@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html >
+<head>
+  <title>Evolent Health Assignment</title>
+  
+ <link th:href="@{/css/contact.css}" rel="stylesheet" />
+  <script src=".."></script>
+  
+  <script type="text/javascript" th:src="@{/js/contact.js}"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  
+  
+</head>
+<body onload="contact.fetch()">
+<div >
+<h1 class="txt-center"> Evolent Health Assignment</h1>
+</div>
+
+<div class="main-contains">
+    <button class="btn btn-primary" onclick="app.loadmodal()">Add New Contact</button>
+    <br>
+    <br>
+    <table class="tbl-contact" border="1" >
+        <tr>
+       		<th>Sr. no</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Phone</th>
+            <th>Email</th>
+            <th>Status</th>
+            <th>Edit</th>
+            <th>Delete</th>
+        </tr>
+       
+    </table>
+    <div class="no-records hide">
+        No contact found...! Please add some contact...!
+    </div>
+    <div  class="popover hide" >
+        <div class="modal-content ">
+            <div class="popoverCloseButton">
+            
+            <button type="button" onclick="app.removemodal()" class="close" aria-label="Close">
+ 				 <span aria-hidden="true">&times;</span>
+			</button>
+            </div>
+            <form id="contactForm" >
+                <table class="contactListTable">
+                    <tr class="form-group">
+                        <td>*First Name</td>
+                        <td>
+                            <input required  id='firstName' class="form-control"  type="text" >                           
+                        </td>
+                    </tr>
+                    <tr class="form-group">
+                        <td>*Last Name</td>
+                        <td>
+                            <input required id='lastName'  class="form-control" type="text"  >
+                         
+                        </td>
+                    </tr>
+                    <tr class="form-group">
+                        <td>*Phone</td>
+                        <td>
+                            <input required id='phoneNumber'  class="form-control"  type="tel"  pattern="^\d{10}$" maxlength="10" >
+                        </td>
+                    </tr>
+                    <tr class="form-group">
+                        <td>*Email</td>
+                        <td>
+                            <input id='email'  class="form-control"   type="email"  required>
+                        </td>
+                    </tr>
+                    <tr class="form-group">
+                        <td>*Status</td>
+                        <td>
+                            <select id='status'   class="form-control"  required >
+                                <option value="Active">Active</option>
+                                <option value="InActive">InActive</option>
+                            </select>
+                           
+                        </td>
+                    </tr>
+                    <tr class='add-mode '>
+                        <td >
+                            <button type="submit" onclick="contact.add()" class="btn btn-primary" >Add</button>
+                        </td>
+                        
+                         <td>
+                            <button type="reset" class="btn btn-primary" >Clear</button>
+                        </td>
+                    </tr>
+                    
+                    <tr class='edit-mode hide' >
+                        <td>
+                            <button type="submit"  class="btn btn-primary" >Update</button>
+                        </td>
+                        
+                    </tr>
+                </table>
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+</html>
